@@ -10,7 +10,7 @@ class TopController extends Controller{
 
     public function sortList () {
         $toplist = DB::table('reviews')
-            ->join('animes', 'reviews.anime', '=', 'animes.id')
+            ->join('animes', 'reviews.animeid', '=', 'animes.id')
             ->select(array('animes.*',
                     DB::raw('round(AVG(rating),2) as ratings_average')))
             ->groupby('animes.id')
