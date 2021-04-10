@@ -15,10 +15,10 @@ class CreateWatchlistsTable extends Migration
     {
         Schema::create('watchlists', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userID');
-            $table->unsignedBigInteger('animeID');
-            $table->foreign('userID')->references('id')->on('users');
-            $table->foreign('animeID')->references('id')->on('animes');
+            $table->unsignedBigInteger('userid');
+            $table->unsignedBigInteger('animeid');
+            $table->foreign('userid')->references('id')->on('users');
+            $table->foreign('animeid')->references('id')->on('animes');
             $table->timestamps();
         });
     }

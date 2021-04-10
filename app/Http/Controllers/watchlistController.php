@@ -22,12 +22,12 @@ class watchlistController {
         $user_id = Auth::user()->id;
         // Join 3 tables "watchlist", "animes" and "users"
         $mywatchlists = DB::table('watchlists')
-            ->join('animes', 'watchlists.animeID', '=', 'animes.id')
-            ->join('users', 'watchlists.userID', '=', 'users.id')
+            ->join('animes', 'watchlists.animeid', '=', 'animes.id')
+            ->join('users', 'watchlists.userid', '=', 'users.id')
             // select data corresponding to table: watchlist, animes and users
             ->select('watchlists.*', 'animes.title', 'animes.description', 'animes.cover', 'users.username')
             // find on table "watchlist" where the value of userID is same as the ID of user connecting
-            ->where('watchlists.userID', $user_id)
+            ->where('watchlists.userid', $user_id)
             // get the data selected
             ->get();
         
@@ -48,8 +48,8 @@ class watchlistController {
         $user_id = Auth::user()->id;
        
         $checkWatchlists = DB::table('watchlists')
-                    ->where('animeID', '=', $id)
-                    ->where('userID', '=', $user_id)
+                    ->where('animeid', '=', $id)
+                    ->where('userid', '=', $user_id)
                     // Retrieving A Single Row From A Table
                     ->first();
         // controller
@@ -58,13 +58,13 @@ class watchlistController {
         {
              // validation des données
                 $validatedData = $request->validate([
-                "animeID" => "required",
-                "userID" => "required"
+                "animeid" => "required",
+                "userid" => "required"
                 ]);
             // modèle: add anime into watchlist
             $watchlist = new Watchlist();
-            $watchlist->animeID = $validatedData["animeID"];
-            $watchlist->userID = $validatedData["userID"];
+            $watchlist->animeid = $validatedData["animeid"];
+            $watchlist->userid = $validatedData["userid"];
             $watchlist->save();
             return redirect("/add_to_watch_list");
             

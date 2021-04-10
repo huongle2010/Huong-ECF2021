@@ -23,7 +23,7 @@ class reviewController extends Controller{
         $user_id = Auth::user()->id;
 
         // Select the useID and animeID exist in the table of reviews or not
-        $checkReviews = DB::select("SELECT comment FROM reviews WHERE userID = $user_id AND animeID = $id");
+        $checkReviews = DB::select("SELECT comment FROM reviews WHERE userid = $user_id AND animeid = $id");
         
         // display the view 'new_review'
         return view('new_review', ["anime" => $anime, "checkReviews" => $checkReviews]);
@@ -35,15 +35,15 @@ class reviewController extends Controller{
         $validatedData = $request->validate([
             "comment" => "required",
             "rating" => "required",
-            "userID" => "required",
-            "animeID" => "required"
+            "userid" => "required",
+            "animeid" => "required"
             ]);
         // modèle: add the value from the form into the table "reviews" 
         $review = new Review();
         $review->comment = $validatedData["comment"];
         $review->rating = $validatedData["rating"];
-        $review->userID = $validatedData["userID"];
-        $review->animeID = $validatedData["animeID"];
+        $review->userID = $validatedData["userid"];
+        $review->animeID = $validatedData["animeid"];
         $review->save();
 
         // show the result

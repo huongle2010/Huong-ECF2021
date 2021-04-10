@@ -19,10 +19,10 @@ class AnimeController {
 
         // join 3 tables 'reviews', 'animes' and 'user'
         $reviews = DB::table('reviews')
-            ->join('animes', 'reviews.animeID', '=', 'animes.id')
-            ->join('users', 'reviews.userID', '=', 'users.id')
+            ->join('animes', 'reviews.animeid', '=', 'animes.id')
+            ->join('users', 'reviews.userid', '=', 'users.id')
             ->select('reviews.*', 'animes.title', 'animes.description', 'users.username')
-            ->where('reviews.animeID', $id)
+            ->where('reviews.animeid', $id)
             ->get();
 
         // calculate the average of rating

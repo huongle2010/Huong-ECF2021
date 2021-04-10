@@ -16,7 +16,7 @@
             {{ $mywatchlist->title }}
           </h2>
         </div>
-        <a class="cta" href="/anime/{{ $mywatchlist->animeID }}">Voir</a>
+        <a class="cta" href="/anime/{{ $mywatchlist->animeid }}">Voir</a>
       </li>
   @endforeach
   </ul>

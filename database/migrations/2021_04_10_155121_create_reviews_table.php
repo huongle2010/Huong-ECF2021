@@ -17,10 +17,10 @@ class CreateReviewsTable extends Migration
             $table->id();
             $table->integer('rating');
             $table->string('comment');
-            $table->unsignedBigInteger('userID');
-            $table->unsignedBigInteger('animeID');
-            $table->foreign('userID')->references('id')->on('users');
-            $table->foreign('animeID')->references('id')->on('animes');
+            $table->unsignedBigInteger('userid');
+            $table->unsignedBigInteger('animeid');
+            $table->foreign('userid')->references('id')->on('users');
+            $table->foreign('animeid')->references('id')->on('animes');
             $table->timestamps();
         });
     }

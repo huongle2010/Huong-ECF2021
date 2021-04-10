@@ -10,10 +10,10 @@ class TopController extends Controller{
 
     public function sortList () {
         $toplist = DB::table('reviews')
-            ->join('animes', 'reviews.animeID', '=', 'animes.id')
+            ->join('animes', 'reviews.animeid', '=', 'animes.id')
             ->select(array('animes.*',
                     DB::raw('round(AVG(rating),2) as ratings_average')))
-            ->groupby('animeID')
+            ->groupby('animeid')
             ->orderBy('ratings_average', 'DESC')
             ->get();
         return view('top', ["toplists" => $toplist]);

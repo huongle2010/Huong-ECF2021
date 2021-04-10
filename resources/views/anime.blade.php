@@ -21,8 +21,8 @@
        
         <form action="/anime/{{ $anime->id }}/add_to_watch_list" method="POST">
         @csrf
-          <input type="hidden" value="{{$anime->id}}" name="animeID">
-          <input type="hidden" value="{{ Auth::user()->id }}" name="userID">
+          <input type="hidden" value="{{$anime->id}}" name="animeid">
+          <input type="hidden" value="{{ Auth::user()->id }}" name="userid">
           <button class="cta">Ajouter à ma watchlist</button>
           @error('error')
             <p class="error">{{ $message }}</p>

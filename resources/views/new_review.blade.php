@@ -27,9 +27,9 @@
             <p class="error">{{ $message }}</p>
             @enderror
             @auth
-            <input type="hidden" value="{{ Auth::user()->id }}" name="userID">
+            <input type="hidden" value="{{ Auth::user()->id }}" name="userid">
             @endauth
-            <input type="hidden" value="{{ $anime -> id }}" name="animeID">
+            <input type="hidden" value="{{ $anime -> id }}" name="animeid">
             <button class="cta">Ajouter</button>   
         </form> 
     @endif
