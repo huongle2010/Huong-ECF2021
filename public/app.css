@@ -201,7 +201,8 @@ article.anime {
     border: 1px solid black;
 }
 .anime h3{
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px
 }
 
 .signup h1,
@@ -225,6 +226,9 @@ input {
 .review form > * + * {
     margin-top: 1.5rem;
 }
+.review h3{
+    color: red;
+}
 
 .input-group > * + * {
     margin-top: 0.5rem;
@@ -235,4 +239,9 @@ input {
 .review {
     display: grid;
     place-items: center;
+}
+
+.error{
+    padding-top: 10px;
+    color: red;
 }

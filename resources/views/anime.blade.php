@@ -41,13 +41,13 @@
         </form>
       @endguest
       </div>
-      <h3>Comments:</h3>
+      <h3>Reviews:</h3>
       <table>
       
             @foreach ($reviews as $review)
             <tr> 
               <td> 
-              {{ $review->username }}:{{ $review->comment }}
+              <strong>{{ $review->username }} </strong>:{{ $review->comment }}
               </td>
             </tr>
             @endforeach                                        
