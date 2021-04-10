@@ -4,6 +4,7 @@
   </x-slot>
   <h1> Ma Watchlist </h1>
   <ul role="list" class="anime-list">
+  
   @foreach($mywatchlists as $mywatchlist)
       <li class="flow">
         <div class="flow">

@@ -15,7 +15,7 @@ class reviewController extends Controller{
       return view('new_review', ["reviews" => $reviews]);
      }
 
-    public function selectReview($id) {
+    public function checkReview($id) {
         // select all data from table 'animes' at the rows with id given
         $anime = DB::select("SELECT * FROM animes WHERE id = ?", [$id])[0];
         
@@ -58,5 +58,7 @@ class reviewController extends Controller{
         // return response()->noContent();
 
     }
+   
+
 
 }

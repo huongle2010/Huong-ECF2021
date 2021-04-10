@@ -7,6 +7,7 @@ use App\Http\Controllers\reviewController;
 use App\Http\Controllers\watchlistController;
 use App\Http\Controllers\TopController;
 
+
 use Illuminate\Http\Request;
 
 
@@ -24,9 +25,10 @@ use Illuminate\Http\Request;
 
 Route::get('/', [AnimeController::class, 'selectList']);
 
-Route::get('/anime/{id}', [AnimeController::class, 'selectid_anime']);
+Route::get('/anime/{id}', [AnimeController::class, 'showReview']);
 
-Route::get('/anime/{id}/new_review', [AnimeController::class, 'review']);
+
+
 
 
 Route::get('/login', [UserController::class, 'login']);
@@ -42,18 +44,17 @@ Route::post('/signout', [UserController::class, 'logout']);
 
 
 Route::get('/anime/{id}/new_review', [reviewController::class, 'listReviews']);
-Route::get('/anime/{id}/new_review', [reviewController::class, 'selectReview']);
+Route::get('/anime/{id}/new_review', [reviewController::class, 'checkReview']);
 Route::post('/anime/{id}/new_review', [reviewController::class, 'addReviews']);
 
 
 
-Route::get('/add_to_watch_list', [watchlistController::class, 'mywatchlist']);
-
 
 Route::get('/anime/{id}/add_to_watch_list', [watchlistController::class, 'watchlists']);
-Route::post('/anime/{id}/add_to_watch_list', [watchlistController::class, 'addtowatch']);
+Route::post('/anime/{id}/add_to_watch_list', [watchlistController::class, 'addtowatchlist']);
 
-Route::get('/add_to_watch_list', [watchlistController::class, 'watchlist_user']);
+
+Route::get('/add_to_watch_list', [watchlistController::class, 'showWatchlist']);
 
 Route::get('/top', [TopController::class, 'top']);
 Route::get('/top', [TopController::class, 'sortList']);
