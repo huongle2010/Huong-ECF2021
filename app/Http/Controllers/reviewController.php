@@ -42,8 +42,8 @@ class reviewController extends Controller{
         $review = new Review();
         $review->comment = $validatedData["comment"];
         $review->rating = $validatedData["rating"];
-        $review->userID = $validatedData["userid"];
-        $review->animeID = $validatedData["animeid"];
+        $review->userid = $validatedData["userid"];
+        $review->animeid = $validatedData["animeid"];
         $review->save();
 
         // show the result
