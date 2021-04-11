@@ -10,9 +10,9 @@ class watchlistController {
     
     public function watchlists()
     {
-    //     //modèle
+    //modèle
     $watchlists = Watchlist::all();
-    //     // vue
+    // vue
       return view('add_to_watch_list', ["watchlists" => $watchlists]);
      }
 
@@ -50,7 +50,7 @@ class watchlistController {
         $checkWatchlists = DB::table('watchlists')
                     ->where('animeid', '=', $id)
                     ->where('userid', '=', $user_id)
-                    // Retrieving A Single Row From A Table
+                    // Retrieving a Single Row From A Table
                     ->first();
         // controller
         // if 
@@ -73,8 +73,6 @@ class watchlistController {
          return back()->withErrors([
             'error' => 'Anime est déja ajouté',
           ]);
-        
-           
         }
         // view
         return redirect("/anime/$id");

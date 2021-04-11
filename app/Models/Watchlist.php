@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Watchlist extends Model
 {
-    public $timestamps = false;
+    
 }

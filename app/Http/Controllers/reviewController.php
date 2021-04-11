@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class reviewController extends Controller{
     public function listReviews()
     {
-    //     //modèle
+    // modèle
     $reviews = Review::all();
-    //     // vue
+    // vue
       return view('new_review', ["reviews" => $reviews]);
      }
 
@@ -58,7 +58,5 @@ class reviewController extends Controller{
         // return response()->noContent();
 
     }
-   
-
 
 }

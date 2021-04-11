@@ -18,13 +18,16 @@ class UserController extends Controller
     }
     // Connection
     public function connextion(Request $request){
+      // validation of data
         $validated = $request->validate([
             "username" => "required",
             "password" => "required",
           ]);
+          //  if user and password is match => connected and redirect to home page
           if (Auth::attempt($validated)) {
             return redirect()->intended('/');
           }
+          // if not , show error
           return back()->withErrors([
             'username' => 'The provided credentials do not match our records.',
           ]);
